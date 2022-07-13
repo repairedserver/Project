@@ -14,13 +14,12 @@ net.getLayer(class8).blobs = [pts.astype("float32")]
 net.getLayer(conv8).blobs = [np.full([1, 313], 2.606, dtype='float32')]
 
 
-image = cv2.imread('./images/chan.jpg')
+image = cv2.imread('./images/chan.jpg') #여기에 이미지 파일명 입력
 scaled = image.astype("float32") / 255.0
 lab = cv2.cvtColor(scaled, cv2.COLOR_BGR2LAB)
 
 
-resized = cv2.resize(l
-ab, (224, 224))
+resized = cv2.resize(lab, (224, 224))
 L = cv2.split(resized)[0]
 L -= 50
 
