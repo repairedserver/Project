@@ -38,5 +38,17 @@ while cap.isOpened():
         break
 
     img_L = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
-    img_L = utils.uint2tensor4(img_L)
-    img_L = utils.to(device)
+    img_L = util.uint2tensor4(img_L)
+    img_L = img_L.to(device)
+
+    img_E = model(img_L)
+    img_E = util.tensor2uint(img_E)
+    img_E = cv2.cvtColor(img_E, cv2.COLOR_RGB2BGR)
+
+    out.write(img_E)
+
+    i += 1
+    print('%d/%d'%(i, n_frames))
+
+out.release()
+cap.release()
