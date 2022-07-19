@@ -4,7 +4,7 @@ import os
 from utils import utils_image as util
 from models.network_rrdbnet import RRDBNet as net
 
-img_path = 'images/1.jpg' #이미지 경로
+img_path = 'images/iu.jpg' #이미지 경로
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
