@@ -14,7 +14,7 @@ net.getLayer(class8).blobs = [pts.astype("float32")]
 net.getLayer(conv8).blobs = [np.full([1, 313], 2.606, dtype='float32')]
 
 
-image = cv2.imread('./images/1_result.png') #여기에 이미지 파일명 입력
+image = cv2.imread('./images/1_adv.jpg') #여기에 이미지 파일명 입력
 scaled = image.astype("float32") / 255.0
 lab = cv2.cvtColor(scaled, cv2.COLOR_BGR2LAB)
 
@@ -37,10 +37,7 @@ colorized = np.clip(colorized, 0, 1)
 
 colorized = (255 * colorized).astype("uint8")
 
-resize_org = cv2.resize(image, (720, 540))
-resize_color = cv2.resize(colorized, (720, 540))
-
-cv2.imshow("Original", resize_org)
-cv2.imshow("Colorized`", resize_color)
+cv2.imwrite('images/1_adv_color.jpg', colorized)
 
 cv2.waitKey(0)
+cv2.destroyAllWindows() # 모든 윈도우 창을 제거
