@@ -4,7 +4,7 @@ import os
 from utils import utils_image as util
 from models.network_rrdbnet import RRDBNet as net
 
-img_path = 'images/4.jpg' #이미지 경로
+img_path = 'images/1.jpg' #이미지 경로
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -23,4 +23,4 @@ with torch.no_grad():
     img_E = model(img_L)
 
     img_E = util.tensor2uint(img_E)
-    util.imsave(img_E, os.path.splitext(img_path)[0] + '_result.png')
+    util.imsave(img_E, os.path.splitext(img_path)[0] + '_adv.jpg')
