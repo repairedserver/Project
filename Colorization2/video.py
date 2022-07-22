@@ -30,7 +30,7 @@ fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
 
 #이미지를 {name}_output.mp4 형태로 저장
 out = cv2.VideoWriter('%s_output.mp4' %(video_path.split('.')[0]), fourcc, cap.get(cv2.CAP_PROP_FPS),
-                      (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) * 4), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * 4)))
+                      (int(cap.get(cv2.CAP_PROP_FRAME_WDIDTH) * 4), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * 4)))
 
 n_frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
 i = 0
